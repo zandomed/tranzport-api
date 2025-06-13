@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.0'
 	id 'io.spring.dependency-management' version '1.1.7'
-	id 'com.netflix.dgs.codegen' version '7.0.3'
+//	id 'com.netflix.dgs.codegen' version '7.0.3'
 	id 'org.hibernate.orm' version '6.6.15.Final'
 	id 'org.graalvm.buildtools.native' version '0.10.6'
 }
@@ -31,18 +31,22 @@ ext {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-graphql'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation 'org.springframework.boot:spring-boot-starter-graphql'
+	implementation 'org.onebusaway:onebusaway-gtfs:7.0.3'
+	implementation 'org.onebusaway:onebusaway-gtfs-merge:7.0.3'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.flywaydb:flyway-core'
 	implementation 'org.flywaydb:flyway-database-postgresql'
 	implementation 'org.springframework.modulith:spring-modulith-starter-core'
-	implementation 'org.springframework.modulith:spring-modulith-starter-jpa'
+//	implementation 'org.springframework.modulith:spring-modulith-starter-jpa'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-	runtimeOnly 'org.postgresql:postgresql'
+//	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+//	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -59,11 +63,11 @@ dependencyManagement {
 	}
 }
 
-generateJava {
-	schemaPaths = ["${projectDir}/src/main/resources/graphql-client"]
-	packageName = 'com.zandome.tranzport.codegen'
-	generateClient = true
-}
+//generateJava {
+//	schemaPaths = ["${projectDir}/src/main/resources/graphql-client"]
+//	packageName = 'com.zandome.tranzport.codegen'
+//	generateClient = true
+//}
 
 hibernate {
 	enhancement {
