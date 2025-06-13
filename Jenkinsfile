@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker {
+        dockerContainer {
             image 'container-registry.oracle.com/graalvm/native-image:21'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
