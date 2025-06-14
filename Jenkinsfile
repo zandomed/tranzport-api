@@ -17,7 +17,7 @@ pipeline {
         stage('Build Native Image') {
             steps {
                 sh '''
-                apt-get update && apt-get install -y findutils
+                microdnf install findutils
                 ./gradlew clean nativeCompile --no-daemon
                 '''
             }
