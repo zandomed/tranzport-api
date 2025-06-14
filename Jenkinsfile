@@ -16,7 +16,10 @@ pipeline {
     stages {
         stage('Build Native Image') {
             steps {
-                sh './gradlew clean nativeCompile --no-daemon'
+                sh '''
+                apt-get update && apt-get install -y findutils
+                ./gradlew clean nativeCompile --no-daemon
+                '''
             }
         }
 
