@@ -14,15 +14,6 @@ pipeline {
     }
 
     stages {
-        stage('Build Native Image') {
-            steps {
-                sh '''
-                microdnf install findutils
-                ./gradlew clean nativeCompile --no-daemon
-                '''
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $GHCR_IMAGE .'
