@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            dockerfile true
-        }
-    }
+    agent none
 
     environment {
         GHCR_USER = 'zandomed'                    // GitHub username
